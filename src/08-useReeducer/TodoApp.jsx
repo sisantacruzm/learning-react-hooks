@@ -21,7 +21,7 @@ const init = () => {
 
 const TodoApp = () => {
 
-    const [ todos, dispatch ] = useReducer( todoReducer, initialState, init);
+    const [ todos, dispatch ] = useReducer( todoReducer, initialState, init );
 
     useEffect( () => {
         localStorage.setItem( "todos", JSON.stringify( todos ) );
@@ -38,6 +38,13 @@ const TodoApp = () => {
         console.log( { todo } );
     };
 
+    const handleDeleteTodo = ( id ) => {
+        dispatch( {
+            type   : "[TODO] Remove Todo",
+            payload: id,
+        } );
+    };
+
     return ( <>
         <h1>Todo APP (10), <small>pendientes: 2</small></h1>
 
@@ -45,7 +52,10 @@ const TodoApp = () => {
 
         <div className="row">
             <div className="col-7">
-                <TodoList todos={ todos }/>
+                <TodoList
+                    todos={ todos }
+                    onDeleteTodo={ handleDeleteTodo }
+                />
             </div>
 
             <div className="col-5">
