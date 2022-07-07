@@ -6,25 +6,26 @@ export const TodoAdd = ( { onNewTodo } ) => {
         description,
         onInputChange,
         onResetForm,
-    } = useForm({ description: "" });
+    } = useForm( { description: "" } );
 
 
     const onFormSubmit = ( event ) => {
         event.preventDefault();
-        console.log(description)
+        console.log( description );
         if ( description.length <= 1 ) return;
 
         const newTodo = {
-            id         : new Date().getTime(),
-            done       : false,
+            id  : new Date().getTime(),
+            done: false,
             description,
         };
 
-        onNewTodo(newTodo);
+        onNewTodo( newTodo );
         onResetForm();
     };
 
-    return ( <form onSubmit={ onFormSubmit }>
+    return (
+        <form onSubmit={ onFormSubmit }>
             <input
                 type="text"
                 placeholder="¿Qué hay que hacer?"
@@ -40,6 +41,5 @@ export const TodoAdd = ( { onNewTodo } ) => {
                 Agregar
             </button>
         </form>
-
     );
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 // import { HooksApp } from './HooksApp';
 // import { CounterApp } from './01-useState/CounterApp';
@@ -13,9 +13,9 @@ import ReactDOM from 'react-dom/client';
 
 import TodoApp from "./08-useReeducer/TodoApp";
 
-import './index.css';
+import "./index.css";
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <TodoApp />
+ReactDOM.createRoot( document.getElementById( "root" ) ).render(
+    <TodoApp/>,
 );

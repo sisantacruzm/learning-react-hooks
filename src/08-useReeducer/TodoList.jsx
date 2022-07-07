@@ -1,12 +1,9 @@
 import { TodoItem } from "./TodoItem";
 
 export const TodoList = ( {
-                              todos = [],
-                              onDeleteTodo,
-                          } ) => {
-
-
-
+    todos = [],
+    onDeleteTodo,
+} ) => {
 
     return (
         <>
