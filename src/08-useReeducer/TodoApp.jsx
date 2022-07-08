@@ -4,17 +4,7 @@ import { TodoList } from "./TodoList";
 import { TodoAdd } from "./TodoAdd";
 
 const initialState = [];
-// const initialState = [
-//     {
-//         id         : new Date().getTime(),
-//         description: "Recolectar la piedra del alma",
-//         done       : false,
-//     }, {
-//         id         : new Date().getTime() * 3,
-//         description: "Recolectar la piedra del tiempo",
-//         done       : false,
-//     },
-// ];
+
 const init = () => {
     return JSON.parse( localStorage.getItem( "todos" ) ) || [];
 };
@@ -45,6 +35,14 @@ const TodoApp = () => {
         } );
     };
 
+    const handleToggleTodo = ( id ) => {
+        dispatch( {
+            type   : "[TODO] Toggle Todo",
+            payload: id,
+        } );
+    };
+
+
     return ( <>
         <h1>Todo APP (10), <small>pendientes: 2</small></h1>
 
@@ -55,6 +53,7 @@ const TodoApp = () => {
                 <TodoList
                     todos={ todos }
                     onDeleteTodo={ handleDeleteTodo }
+                    onToggleTodo={ handleToggleTodo }
                 />
             </div>
 
@@ -62,7 +61,9 @@ const TodoApp = () => {
                 <h4>Agregar TODO</h4>
                 <hr/>
 
-                <TodoAdd onNewTodo={ handleNewTodo }/>
+                <TodoAdd
+                    onNewTodo={ handleNewTodo }
+                />
 
             </div>
         </div>
